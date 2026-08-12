@@ -1,12 +1,25 @@
 {
   "name": "portfolio",
-  "module": "index.ts",
   "type": "module",
   "private": true,
+  "scripts": {
+    "dev": "bunx --bun astro dev",
+    "build": "bunx --bun astro build",
+    "preview": "bunx --bun astro preview",
+    "check": "bunx --bun astro check"
+  },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@astrojs/check": "^0.9.10",
+    "@types/bun": "latest",
+    "typescript": "5.7.3"
   },
   "peerDependencies": {
-    "typescript": "^5"
+    "typescript": "5.7.3"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.2.1",
+    "simple-icons": "^16.28.0",
+    "tailwindcss": "^4.3.3"
   }
 }
