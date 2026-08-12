@@ -1,0 +1,16 @@
+---
+import { getCollection } from "astro:content";
+import ExperienceCard from "./ExperienceCard.astro";
+
+const entries = (await getCollection("experience", ({ data }) => data.enabled !== false)).sort(
+  (a, b) => a.data.order - b.data.order
+);
+---
+
+<section class="flex flex-col gap-8" id="experience">
+  <h2 class="font-display-lg text-display-lg text-primary">Experience</h2>
+  <div class="space-y-6">
+    {entries.map((entry) => <ExperienceCard {...entry.data} />)}
+  </div>
+  <hr class="border-t border-outline-variant mt-12" />
+</section>

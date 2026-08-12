@@ -1,0 +1,42 @@
+---
+import { flags } from "../config/flags";
+---
+
+<nav class="sticky top-0 z-40 w-full bg-surface border-b border-outline-variant lg:border-none shadow-sm lg:shadow-none">
+  <div class="w-full h-16 flex items-center justify-end px-margin-page gap-gutter max-w-container-max ml-auto">
+    <ul class="items-center gap-6 font-label-md text-lg font-semibold hidden md:flex">
+      <li>
+        <a href="#experience" class="text-primary font-bold border-b-2 border-primary pb-1 cursor-pointer hover:text-primary transition-colors">Experience</a>
+      </li>
+      <li>
+        <a href="#stack" class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer">Stack</a>
+      </li>
+      {
+        flags.featuredProjects && (
+          <li>
+            <a href="#projects" class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer">Featured Projects</a>
+          </li>
+        )
+      }
+      {
+        flags.github && (
+          <li>
+            <a href="#github" class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer">Github</a>
+          </li>
+        )
+      }
+      {
+        flags.blog && (
+          <li>
+            <a href="#blog" class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer">Blog</a>
+          </li>
+        )
+      }
+      <li class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer">About</li>
+    </ul>
+    <!-- Mobile Menu Icon -->
+    <button class="md:hidden text-on-surface">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </div>
+</nav>

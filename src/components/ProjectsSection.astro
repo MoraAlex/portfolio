@@ -1,0 +1,16 @@
+---
+import { getCollection } from "astro:content";
+import ProjectCard from "./ProjectCard.astro";
+
+const entries = (await getCollection("projects", ({ data }) => data.enabled !== false)).sort(
+  (a, b) => a.data.order - b.data.order
+);
+---
+
+<section class="flex flex-col gap-8" id="projects">
+  <h2 class="font-display-lg text-display-lg text-primary">Featured projects</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    {entries.map((entry) => <ProjectCard {...entry.data} />)}
+  </div>
+  <hr class="border-t border-outline-variant mt-12" />
+</section>
