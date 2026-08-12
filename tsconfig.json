@@ -1,11 +1,17 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "types": ["bun", "astro/client"],
+    "types": [
+      "bun",
+      "astro/client"
+    ],
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "noPropertyAccessFromIndexSignature": false
-  }
+  },
+  "include": [
+    "./worker-configuration.d.ts"
+  ]
 }
