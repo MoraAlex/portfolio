@@ -9,6 +9,6 @@ achievements:
   - "Created a template generator to speed up microservice development and reduce development time."
   - "Implemented gRPC for microservice communication, reducing response times between services."
   - "Built a reusable dashboard component in React to visualize data, adaptable for use in other dashboards or panels."
-stack: ["Go", "Py", "Re", "gRPC"]
+stack: ["go", "python", "react", "gRPC"]
 enabled: true
 ---

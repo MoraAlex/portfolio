@@ -9,6 +9,6 @@ achievements:
   - "Developed new crawlers in Go for over 500 e-commerce websites."
   - "Refactored the crawling system to use functional programming, generalizing the crawling process and reducing development time."
   - "Developed an automated template creation system in Go to speed up new crawler development and increase the team's productivity."
-stack: ["Go", "Py"]
+stack: ["go", "python"]
 enabled: true
 ---

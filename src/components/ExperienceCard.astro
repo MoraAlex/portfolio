@@ -1,5 +1,6 @@
 ---
 import { highlightTech } from "../lib/highlightTech";
+import { TECH_ICONS, type TechKey } from "../lib/techIcons";
 
 interface Props {
   title: string;
@@ -10,6 +11,11 @@ interface Props {
 }
 
 const { title, dateRange, description, achievements, stack } = Astro.props;
+
+function resolveTech(key: string) {
+  const icon = TECH_ICONS[key as TechKey];
+  return icon ? { icon, label: key } : { icon: null, label: key };
+}
 ---
 
 <div class="bg-surface-container-lowest rounded-xl p-8 border border-outline-variant shadow-level-2 flex flex-col gap-4 relative overflow-hidden group hover:border-primary transition-colors">
@@ -24,11 +30,28 @@ const { title, dateRange, description, achievements, stack } = Astro.props;
   <!-- Tech Stack Logos -->
   <div class="flex gap-2 mt-4 pt-4 border-t border-surface-container-highest">
     {
-      stack.map((item) => (
-        <div class="w-8 h-8 rounded-full border border-outline-variant flex items-center justify-center bg-surface-container-low text-xs text-on-surface-variant font-bold">
-          {item}
-        </div>
-      ))
+      stack.map(resolveTech).map(({ icon, label }) =>
+        icon ? (
+          <div
+            class="group/tech relative w-8 h-8 rounded-full border border-outline-variant flex items-center justify-center bg-surface-container-low"
+            aria-label={icon.title}
+          >
+            <svg viewBox="0 0 24 24" class="w-4 h-4" style={`color: ${icon.hex}`} fill="currentColor">
+              <path d={icon.path} />
+            </svg>
+            <span
+              role="tooltip"
+              class="pointer-events-none absolute bottom-full left-1/2 z-10 mb-2 -translate-x-1/2 scale-95 whitespace-nowrap rounded-md bg-inverse-surface px-2 py-1 text-xs font-medium text-inverse-on-surface opacity-0 transition-all duration-150 group-hover/tech:scale-100 group-hover/tech:opacity-100"
+            >
+              {icon.title}
+            </span>
+          </div>
+        ) : (
+          <div class="w-8 h-8 rounded-full border border-outline-variant flex items-center justify-center bg-surface-container-low text-xs text-on-surface-variant font-bold">
+            {label}
+          </div>
+        )
+      )
     }
   </div>
 </div>

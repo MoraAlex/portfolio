@@ -8,6 +8,6 @@ achievements:
   - "Led the frontend refactoring, creating reusable React components and significantly reducing the application's size."
   - "Containerized and developed new backend services in Go using Docker, standardizing development and deployment environments across teams."
   - "Worked with Kubernetes to deploy and manage containerized services, supporting scaling, availability, and environment consistency."
-stack: ["Go", "Re", "Dk", "K8s"]
+stack: ["go", "react", "docker", "kubernetes"]
 enabled: true
 ---

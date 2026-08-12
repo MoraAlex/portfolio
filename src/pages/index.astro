@@ -8,7 +8,7 @@ import ProjectsSection from "../components/ProjectsSection.astro";
 import GithubSection from "../components/GithubSection.astro";
 import BlogSection from "../components/BlogSection.astro";
 import Footer from "../components/Footer.astro";
-import { flags } from "../config/flags";
+import { GITHUB_FF, FEATURED_PROJECTS_FF, BLOG_FF } from "astro:env/server";
 ---
 
 <BaseLayout>
@@ -19,9 +19,9 @@ import { flags } from "../config/flags";
     <div class="w-full max-w-container-max mx-auto px-margin-page py-section-padding space-y-24">
       <ExperienceSection />
       <StackSection />
-      {flags.featuredProjects && <ProjectsSection />}
-      {flags.github && <GithubSection />}
-      {flags.blog && <BlogSection />}
+      {FEATURED_PROJECTS_FF && <ProjectsSection />}
+      {GITHUB_FF && <GithubSection />}
+      {BLOG_FF && <BlogSection />}
     </div>
     <Footer />
   </main>

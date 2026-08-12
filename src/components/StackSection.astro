@@ -1,67 +1,48 @@
 ---
-import goRaw from "simple-icons/icons/go.svg?raw";
-import javascriptRaw from "simple-icons/icons/javascript.svg?raw";
-import typescriptRaw from "simple-icons/icons/typescript.svg?raw";
-import pythonRaw from "simple-icons/icons/python.svg?raw";
-import reactRaw from "simple-icons/icons/react.svg?raw";
-import angularRaw from "simple-icons/icons/angular.svg?raw";
-import nodedotjsRaw from "simple-icons/icons/nodedotjs.svg?raw";
-import dockerRaw from "simple-icons/icons/docker.svg?raw";
-import kubernetesRaw from "simple-icons/icons/kubernetes.svg?raw";
-import rabbitmqRaw from "simple-icons/icons/rabbitmq.svg?raw";
+import { TECH_ICONS } from "../lib/techIcons";
 
-function parseIcon({ raw, hex }: { raw: string; hex: string }) {
-  const title = raw.match(/<title>([^<]+)<\/title>/)?.[1] ?? "";
-  const path = raw.match(/<path d="([^"]+)"/)?.[1] ?? "";
-  return { title, path, hex };
-}
-
-const STACK_ICONS = [
-  { raw: goRaw, hex: "#00ADD8" },
-  { raw: javascriptRaw, hex: "#F7DF1E" },
-  { raw: typescriptRaw, hex: "#3178C6" },
-  { raw: pythonRaw, hex: "#3776AB" },
-  { raw: reactRaw, hex: "#61DAFB" },
-  { raw: angularRaw, hex: "#0F0F11" },
-  { raw: nodedotjsRaw, hex: "#5FA04E" },
-  { raw: dockerRaw, hex: "#2496ED" },
-  { raw: kubernetesRaw, hex: "#326CE5" },
-  { raw: rabbitmqRaw, hex: "#FF6600" },
+const stack = [
+  TECH_ICONS.go,
+  TECH_ICONS.javascript,
+  TECH_ICONS.typescript,
+  TECH_ICONS.python,
+  TECH_ICONS.react,
+  TECH_ICONS.vue,
+  TECH_ICONS.nodejs,
+  TECH_ICONS.docker,
+  TECH_ICONS.kubernetes,
+  TECH_ICONS.kafka,
 ];
-
-const stack = STACK_ICONS.map(parseIcon);
 ---
 
 <section class="flex flex-col gap-8" id="stack">
   <h2 class="font-display-lg text-display-lg text-primary">Stack</h2>
   <p class="font-body-md text-body-md text-on-surface-variant">Technologies and tools I work with on a daily basis to build scalable and robust applications.</p>
-  <div class="bg-surface-container-lowest rounded-xl p-8 border border-outline-variant shadow-level-2 overflow-hidden">
-    <div class="marquee pt-10">
-      <div class="marquee-track">
-        {
-          [...stack, ...stack].map((icon) => (
-            <div
-              class="relative w-16 h-16 shrink-0 rounded-full border-2 border-surface-variant flex items-center justify-center bg-surface hover:border-primary transition-colors group"
-              aria-label={icon.title}
+  <div class="marquee pt-10">
+    <div class="marquee-track">
+      {
+        [...stack, ...stack].map((icon) => (
+          <div
+            class="relative w-16 h-16 shrink-0 rounded-full border-2 border-surface-variant flex items-center justify-center bg-surface hover:border-primary transition-colors group"
+            aria-label={icon.title}
+          >
+            <svg
+              viewBox="0 0 24 24"
+              class="w-8 h-8 transition-transform duration-200 group-hover:scale-110"
+              style={`color: ${icon.hex}`}
+              fill="currentColor"
             >
-              <svg
-                viewBox="0 0 24 24"
-                class="w-8 h-8 transition-transform duration-200 group-hover:scale-110"
-                style={`color: ${icon.hex}`}
-                fill="currentColor"
-              >
-                <path d={icon.path} />
-              </svg>
-              <span
-                role="tooltip"
-                class="pointer-events-none absolute bottom-full left-1/2 z-10 mb-2 -translate-x-1/2 scale-95 whitespace-nowrap rounded-md bg-inverse-surface px-2 py-1 text-xs font-medium text-inverse-on-surface opacity-0 transition-all duration-150 group-hover:scale-100 group-hover:opacity-100"
-              >
-                {icon.title}
-              </span>
-            </div>
-          ))
-        }
-      </div>
+              <path d={icon.path} />
+            </svg>
+            <span
+              role="tooltip"
+              class="pointer-events-none absolute bottom-full left-1/2 z-10 mb-2 -translate-x-1/2 scale-95 whitespace-nowrap rounded-md bg-inverse-surface px-2 py-1 text-xs font-medium text-inverse-on-surface opacity-0 transition-all duration-150 group-hover:scale-100 group-hover:opacity-100"
+            >
+              {icon.title}
+            </span>
+          </div>
+        ))
+      }
     </div>
   </div>
   <hr class="border-t border-outline-variant mt-12" />

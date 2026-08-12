@@ -8,6 +8,6 @@ achievements:
   - "Developed workforce planning features, enabling scheduled data synchronization between the client's operational data and Verint's WFM modules."
   - "Designed and implemented a daily batch data synchronization process, ensuring consistency between the client's product data and Verint."
   - "Built interactive dashboards using React and TypeScript to visualize workforce, planning, and operational metrics for business stakeholders."
-stack: ["TS", "Re"]
+stack: ["typescript", "react"]
 enabled: true
 ---
