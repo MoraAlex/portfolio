@@ -3,11 +3,10 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "bunx --bun astro dev",
-    "build": "bunx --bun astro build",
-    "preview": "bunx --bun astro preview",
-    "check": "bunx --bun astro check",
-    "generate-types": "wrangler types"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
