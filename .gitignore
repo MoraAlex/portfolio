@@ -1,6 +1,9 @@
 # dependencies (bun install)
 node_modules
 
+# wrangler local cache
+.wrangler
+
 # output
 out
 dist
