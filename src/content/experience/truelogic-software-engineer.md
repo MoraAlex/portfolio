@@ -1,6 +1,6 @@
 ---
 title: "Software Engineer, Truelogic"
-dateRange: "Jul 2025 - Apr 2026"
+dateRange: "Jul 2025 - Jun 2026"
 order: 1
 description: "Integrated a Workforce Management (WFM) platform (Verint) into the client's internal systems, collaborating with an international, cross-functional team."
 achievements:
